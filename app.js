@@ -27,6 +27,16 @@ if(hasDog === 'yes' || hasDog === 'y'){
 }
 console.log('hasDog: ' + hasDog);
 
+// Prompt user and respond based on the answer
+var isFunny = prompt('Do you think I\'m funny?').toLowerCase();
+if(isFunny === 'yes' || isFunny === 'y'){
+  alert('Well.... you\'re right, I\'m obviously hilarious!');
+} else if (isFunny === 'no' || isFunny === 'n'){
+  alert('Oof...');
+} else {
+  alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
+}
+console.log('isFunny: ' + isFunny);
 
 
 
