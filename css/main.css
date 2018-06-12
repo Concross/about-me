@@ -6,7 +6,11 @@
 body{
   background: lightgray;
 }
-h1, h2, h3, p, img {
+h1, h2, h3 {
+  margin-top: 30px;
+}
+
+img, p {
   margin: 15px;
 }
 
@@ -17,7 +21,7 @@ h1, h2 {
 h1 {
   font-size: 28px;
   font-weight: 800;
-  color: green;
+  color: brown;
 }
 
 h2 {
@@ -29,10 +33,29 @@ h3 {
   font-size: 20px;
   font-weight: 400px;
   color: brown;
+  margin: 15px;
 }
 
 img {
   height: 200px;
+}
+
+/***********************************
+*      More specific CSS Selectors *
+ ***********************************/
+p:first-of-type {
+  width: 66%;
+  margin: 15px auto;
+}
+
+#about-me-top-container {
+  background-color: lightslategray;
+  box-shadow: 0px 1px;
+}
+
+#about-me-top-container > h1 {
+  margin: 0 15px 15px 15px;
+  padding-top: 25px;
 }
 
 #bio-paragraph{
