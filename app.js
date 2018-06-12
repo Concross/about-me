@@ -49,5 +49,20 @@ if(isBatman === 'yes' || isBatman === 'y'){
 }
 console.log('isBatman: ' + isBatman);
 
+// Prompt user and respond based on the answer
+var isBilingual = prompt('Am I bilingual?').toLowerCase();
+if(isBilingual === 'yes' || isBilingual === 'y'){
+  alert('Well not quite, but I\'d love to be bilingual someday soon!');
+} else if (isBilingual === 'no' || isBilingual === 'n'){
+  alert('Sadly, you\'re right. But I hope to change that soon!');
+} else {
+  alert('Please respond with a simple (Y) Yes or (N) No next time, thanks!');
+}
+console.log('isBilingual: ' + isBilingual);
+
+alert('Thanks for playing!');
+
+
+
 
 
