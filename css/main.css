@@ -3,4 +3,34 @@
 /**************************
 *    BASE CSS STYLING     *
 ************************* */
+body{
+  background: lightgray;
+}
+h1, h2, h3, p, img {
+  margin: 15px;
+}
 
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: green;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 400px;
+  color: brown;
+}
+
+#bio_paragraph{
+  text-align: center;
+}
