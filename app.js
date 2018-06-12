@@ -16,5 +16,18 @@ if(likesCamping === 'yes' || likesCamping === 'y'){
 }
 console.log('likesCamping: ' + likesCamping);
 
+// Prompt user and respond based on the answer
+var hasDog = prompt('Do I have a dog?').toLowerCase();
+if(hasDog === 'yes' || hasDog === 'y'){
+  alert('You\'re right, I have a big fluffy Alaskan Malamute named Sledge!');
+} else if (hasDog === 'no' || hasDog === 'n'){
+  alert('Sorry, you missed this one. I have a big fluffy Alaskan Malamute named Sledge!');
+} else {
+  alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
+}
+console.log('hasDog: ' + hasDog);
+
+
+
 
 
