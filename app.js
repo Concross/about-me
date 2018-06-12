@@ -38,6 +38,16 @@ if(isFunny === 'yes' || isFunny === 'y'){
 }
 console.log('isFunny: ' + isFunny);
 
+// Prompt user and respond based on the answer
+var isBatman = prompt('Am I Batman?').toLowerCase();
+if(isBatman === 'yes' || isBatman === 'y'){
+  alert('I\'m BATMAN');
+} else if (isBatman === 'no' || isBatman === 'n'){
+  alert('Nope, I\'m definitely batman');
+} else {
+  alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
+}
+console.log('isBatman: ' + isBatman);
 
 
 
