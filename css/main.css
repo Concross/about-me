@@ -31,6 +31,14 @@ h3 {
   color: brown;
 }
 
+img {
+  height: 200px;
+}
+
 #bio_paragraph{
+  text-align: center;
+}
+
+#image-container {
   text-align: center;
 }
