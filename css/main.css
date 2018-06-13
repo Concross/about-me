@@ -41,7 +41,7 @@ img {
 }
 
 /***********************************
-*      More specific CSS Selectors *
+*    More specific CSS Selectors   *
  ***********************************/
 p:first-of-type {
   width: 66%;
