@@ -25,56 +25,77 @@ do {
 
 
 // Prompt user and respond based on the answer
-var hasDog = prompt('Do I have a dog?').toLowerCase();
+var hasDog;
+var hasDogBool = true;
+do {
+  hasDog = prompt('Do I have a dog?').toLowerCase();
 
-if (hasDog === 'yes' || hasDog === 'y') {
-  alert('You\'re right, I have a big fluffy Alaskan Malamute named Sledge!');
-} else if (hasDog === 'no' || hasDog === 'n') {
-  alert('Sorry, you missed this one. I have a big fluffy Alaskan Malamute named Sledge!');
-} else {
-  alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
-}
-console.log('hasDog: ' + hasDog);
-
-// Prompt user and respond based on the answer
-var isFunny = prompt('Do you think I\'m funny?');
-isFunny = isFunny.toLowerCase();
-
-if (isFunny === 'yes' || isFunny === 'y') {
-  alert('Well.... you\'re right, I\'m obviously hilarious!');
-} else if (isFunny === 'no' || isFunny === 'n') {
-  alert('Oof...');
-} else {
-  alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
-}
-console.log('isFunny: ' + isFunny);
+  // Check if the guess is correct
+  if (hasDog === 'yes' || hasDog === 'y') {
+    alert('You\'re right, I have a big fluffy Alaskan Malamute named Sledge!');
+    hasDogBool = false;
+  } else if (hasDog === 'no' || hasDog === 'n') {
+    alert('Sorry, you missed this one. I have a big fluffy Alaskan Malamute named Sledge!');
+  } else {
+    alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
+  }
+  console.log('hasDog: ' + hasDog);
+} while (hasDogBool);
 
 // Prompt user and respond based on the answer
-var isBatman = prompt('Am I Batman?');
-isBatman = isBatman.toLowerCase();
+var isFunny;
+var isFunnyBool = true;
+do {
+  isFunny = prompt('Do you think I\'m funny?');
 
-if (isBatman === 'yes' || isBatman === 'y') {
-  alert('I\'m BATMAN');
-} else if (isBatman === 'no' || isBatman === 'n') {
-  alert('Nope, I\'m definitely batman');
-} else {
-  alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
-}
-console.log('isBatman: ' + isBatman);
+  // Check if the guess is correct
+  if (isFunny === 'yes' || isFunny === 'y') {
+    alert('Well.... you\'re right, I\'m obviously hilarious!');
+    isFunnyBool = false;
+  } else if (isFunny === 'no' || isFunny === 'n') {
+    alert('Oof...');
+  } else {
+    alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
+  }
+  console.log('isFunny: ' + isFunny);
+} while (isFunnyBool);
 
 // Prompt user and respond based on the answer
-var isBilingual = prompt('Am I bilingual?');
-isBilingual = isBilingual.toLowerCase();
+var isBatman;
+var isBatmanBool = true;
 
-if (isBilingual === 'yes' || isBilingual === 'y') {
-  alert('Well not quite, but I\'d love to be bilingual someday soon!');
-} else if (isBilingual === 'no' || isBilingual === 'n') {
-  alert('Sadly, you\'re right. But I hope to change that soon!');
-} else {
-  alert('Please respond with a simple (Y) Yes or (N) No next time, thanks!');
-}
-console.log('isBilingual: ' + isBilingual);
+do {
+  isBatman = prompt('Am I Batman?').toLowerCase();
 
+  // Check if the guess is correct
+  if (isBatman === 'yes' || isBatman === 'y') {
+    alert('I\'m BATMAN');
+    isBatmanBool = false;
+  } else if (isBatman === 'no' || isBatman === 'n') {
+    alert('Nope, I\'m definitely batman');
+  } else {
+    alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
+  }
+  console.log('isBatman: ' + isBatman);
+} while (isBatmanBool);
+
+// Prompt user and respond based on the answer
+var isBilingual;
+var isBilingualBool = true;
+do {
+  isBilingual = prompt('Am I bilingual?').toLowerCase();
+
+  // Check if the guess is correct
+  if (isBilingual === 'yes' || isBilingual === 'y') {
+    alert('Well not quite, but I\'d love to be bilingual someday soon!');
+    isBilingualBool = false;
+  } else if (isBilingual === 'no' || isBilingual === 'n') {
+    alert('Sadly, you\'re right. But I hope to change that soon!');
+  } else {
+    alert('Please respond with a simple (Y) Yes or (N) No next time, thanks!');
+  }
+  console.log('isBilingual: ' + isBilingual);
+} while (isBilingualBool);
 
 // Question logic for a random number guessing game
 // Random number functionality used from MDN reference
