@@ -122,38 +122,35 @@ var favLanguages = ['html', 'css', 'javascript', 'python']; // Array of answers
 console.log('Favorite languages: ' + favLanguages);
 var userLangGuess; // Declared variable holder for users guess
 var langGuessCounter = 1; // Declared a guess counter
+var isRight = false;
+
 // Beginning of while loop for language guessing game
 while (langGuessCounter < 7){
+
   // Prompt user for a guess
   userLangGuess = prompt('What is ONE of my favorite programming languages?').toLowerCase(); 
   console.log('User guess: ' + userLangGuess);
 
-  switch (userLangGuess){
-  case favLanguages[0]:
-    alert('Yay, you got one!');
-    langGuessCounter = 7;
-    break;
-  case favLanguages[1]:
-    alert('Yay, you got one!');
-    langGuessCounter = 7;
-    break;
-  case favLanguages[2]:
-    alert('Yay, you got one!');
-    langGuessCounter = 7;
-    break;
-  case favLanguages[3]:
-    alert('Yay, you got one!');
-    langGuessCounter = 7;
-    break;
-  default:
-    alert('Sorry, try again!');
-    langGuessCounter++;
+  // Iterate through the list and check if values match
+  for (var i = 0; i < favLanguages.length; i++){
+    if (userLangGuess === favLanguages[i]){ // If there's a match, over increment counter to fail while
+      alert('YAY! You got it right in ' + langGuessCounter + ' out of 6 guesses!');
+      isRight = true;
+      console.log('In if statement line 139' + isRight);
+      break;
+    } else {
+      isRight = false;
+      console.log('In else statement line 145' + isRight);
+    }
   }
+  if (isRight){
+    console.log('In if statement line 149' + isRight);
+    break;
+  } else {
+    alert('Sorry, try again! You have used ' + langGuessCounter + ' out of 6 guesses');
+  }
+  langGuessCounter++;
 
 }
+alert('Sorry, you are out of guesses!');
 alert('Thanks for playing!');
-
-
-
-
-
