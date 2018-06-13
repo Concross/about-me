@@ -83,30 +83,37 @@ console.log('randomNum: ' + randomNum);
 var userNumGuess;
 var numGuessCounter = 1;
 
+// While user has made less than 4 guess, stay in the while loop
 while(numGuessCounter < 5){
+
+  // Prompt user and log values
   userNumGuess = prompt('Try and guess my random number between 1 and 100!');
   console.log('userNumGuess: ' + userNumGuess);
   console.log('numGuessCounter: ' + numGuessCounter);
 
+  // Check for null values/empty strings and guesses outside desired range
   if ( (userNumGuess < 1 || userNumGuess > 100) || userNumGuess === null || userNumGuess === ''){
     alert('Please guess a NUMBER between 1 and 100');
     console.log('User inputted a null value, an empty string, or a number outside the range');
-  } else if (numGuessCounter === 4){
+  } else if (numGuessCounter === 4){ // Checks if user is out of guesses and breaks out of loop
     alert('Sorry, you are out of guesses! The number was ' + randomNum + '.');
     console.log('User ran out of guesses');
     break;
-  } else if (userNumGuess == randomNum){
+  } else if (userNumGuess == randomNum){ // Checks if guess matches random number (type coerced), break
     alert('NICE! You guessed the number in ' + numGuessCounter + ' out of 4 guesses!');
     console.log('Number was guessed');
     break;
-  } else if (userNumGuess > randomNum){
+  } else if (userNumGuess > randomNum){ // Checks if guess is higher than random number, inc counter
     alert('Nope, it\'s lower! You have used ' + numGuessCounter + ' out of 4 guesses');
     console.log('User guess was higher than random number');
     numGuessCounter++;
-  } else if (userNumGuess < randomNum){
+  } else if (userNumGuess < randomNum){ // Checks guess is lower than random number, inc counter
     alert('Nope, it\'s higher! You have used ' + numGuessCounter + ' out of 4 guess;');
     console.log('User guess was lower than random number');
     numGuessCounter++;
+  } else {
+    alert('Hmm... something\'s not right. Please try again guessing a NUMBER between 1and 100.');
+    console.log('Unexpected response');
   }
 }
 
