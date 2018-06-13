@@ -88,9 +88,9 @@ do {
   // Check if the guess is correct
   if (isBilingual === 'yes' || isBilingual === 'y') {
     alert('Well not quite, but I\'d love to be bilingual someday soon!');
-    isBilingualBool = false;
   } else if (isBilingual === 'no' || isBilingual === 'n') {
     alert('Sadly, you\'re right. But I hope to change that soon!');
+    isBilingualBool = false;
   } else {
     alert('Please respond with a simple (Y) Yes or (N) No next time, thanks!');
   }
@@ -178,5 +178,10 @@ while (langGuessCounter < 7) {
 if (langGuessCounter === 7) {
   alert('Sorry, you are ran out of guesses!');
 }
+var favLanguagesMessage = '';
+for (var j = 0; j < favLanguages.length; j++){
+  favLanguagesMessage += favLanguages[j] + ' ';
+}
+alert('My favorite languages are: ' + favLanguagesMessage);
 
 alert('Thanks for playing!');
