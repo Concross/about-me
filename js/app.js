@@ -8,6 +8,8 @@ var isBatman;
 var isBilingual;
 var userNumGuess;
 var randomNum;
+var userLangGuess; // Declared variable holder for users guess
+var favLanguagesMessage = '';
 
 var totalCorrect = 0; // Declare a variable for counting the total number of correctly answered questions
 // Prompt user for name, respond with a greeting
@@ -162,11 +164,10 @@ randomNumberGame();
 // Guessing game from a list of possible answers
 function languageGuessingGame() {
   var favLanguages = ['html', 'css', 'javascript', 'python']; // Array of answers
-  var userLangGuess; // Declared variable holder for users guess
   var langGuessCounter = 1; // Declared a guess counter
   var guessMax = 7;
   var isRight = false;
-
+  
   // Beginning of while loop for language guessing game
   while (langGuessCounter < guessMax && !isRight) {
 
@@ -175,26 +176,25 @@ function languageGuessingGame() {
     // Iterate through the list and check if values match
     for (var i = 0; i < favLanguages.length; i++) {
       if (userLangGuess === favLanguages[i]) { // If there's a match, over increment counter to fail while
-        alert('YAY! You got it right in ' + langGuessCounter + ' out of 6 guesses!');
-        isRight = true;
-      };
-    }
-    if (isRight) {
-      totalCorrect += 1;
-    } else {
-      alert('Sorry, try again! You have used ' + langGuessCounter + ' out of 6 guesses');
-    }
-    langGuessCounter++;
+      alert('YAY! You got it right in ' + langGuessCounter + ' out of 6 guesses!');
+      isRight = true;
+    };
   }
-  if (!isRight) {
-    alert('Sorry, you ran out of guesses!');
+  if (isRight) {
+    totalCorrect += 1;
+  } else {
+    alert('Sorry, try again! You have used ' + langGuessCounter + ' out of 6 guesses');
   }
-  // Display a message of all of my favorite languages to the user
-  var favLanguagesMessage = '';
-  for (var index = 0; index < favLanguages.length; index++) {
-    favLanguagesMessage += favLanguages[index] + ' ';
-  }
-  alert('My favorite languages are: ' + favLanguagesMessage);
+  langGuessCounter++;
+}
+if (!isRight) {
+  alert('Sorry, you ran out of guesses!');
+}
+// Display a message of all of my favorite languages to the user
+for (var index = 0; index < favLanguages.length; index++) {
+  favLanguagesMessage += favLanguages[index] + ' ';
+}
+alert('My favorite languages are: ' + favLanguagesMessage);
 };
 languageGuessingGame();
 
@@ -209,7 +209,6 @@ var batmanAnswer = document.getElementById('batman-answer');
 var bilingualAnswer = document.getElementById('bilingual-answer');
 var numberGuessAnswer = document.getElementById('number-guess-answer');
 var languageAnswer = document.getElementById('language-answer');
-console.log(questionHeader);
 // Code block to write to the above elements
 function gameAnswersWriter() {
   questionHeader.innerHTML = userName + ' here are the questions and your answers!';
@@ -224,4 +223,4 @@ function gameAnswersWriter() {
 };
 gameAnswersWriter();
 // Final message of the game!
-// alert('Thanks for playing, ' + userName + '! You got ' + totalCorrect + '/7 questions right!');
+alert('Thanks for playing, ' + userName + '! You got ' + totalCorrect + '/7 questions right!');
