@@ -1,5 +1,6 @@
 'use strict';
 
+var totalCorrect = 0; // Declare a variable for counting the total number of correctly answered questions
 // Prompt user for name, respond with a greeting
 var userName = prompt('Hello! What is your name?');
 alert('Nice to meet you, ' + userName + '. Let\'s play a yes or no guessing game!');
@@ -14,6 +15,8 @@ do {
   // Check if the guess is correct
   if (likesCamping === 'yes' || likesCamping === 'y') {
     alert('You\'re right! I LOVE camping');
+    totalCorrect += 1;
+    console.log('Total Correct: ' + totalCorrect);
     likesCampingBool = false;
   } else if (likesCamping === 'no' || likesCamping === 'n') {
     alert('Sorry, you missed this one. I LOVE camping!');
@@ -33,6 +36,8 @@ do {
   // Check if the guess is correct
   if (hasDog === 'yes' || hasDog === 'y') {
     alert('You\'re right, I have a big fluffy Alaskan Malamute named Sledge!');
+    totalCorrect += 1;
+    console.log('Total Correct: ' + totalCorrect);
     hasDogBool = false;
   } else if (hasDog === 'no' || hasDog === 'n') {
     alert('Sorry, you missed this one. I have a big fluffy Alaskan Malamute named Sledge!');
@@ -46,11 +51,13 @@ do {
 var isFunny;
 var isFunnyBool = true;
 do {
-  isFunny = prompt('Do you think I\'m funny?');
+  isFunny = prompt('Do you think I\'m funny?').toLowerCase();
 
   // Check if the guess is correct
   if (isFunny === 'yes' || isFunny === 'y') {
     alert('Well.... you\'re right, I\'m obviously hilarious!');
+    totalCorrect += 1;
+    console.log('Total Correct: ' + totalCorrect);
     isFunnyBool = false;
   } else if (isFunny === 'no' || isFunny === 'n') {
     alert('Oof...');
@@ -70,6 +77,8 @@ do {
   // Check if the guess is correct
   if (isBatman === 'yes' || isBatman === 'y') {
     alert('I\'m BATMAN');
+    totalCorrect += 1;
+    console.log('Total Correct: ' + totalCorrect);
     isBatmanBool = false;
   } else if (isBatman === 'no' || isBatman === 'n') {
     alert('Nope, I\'m definitely batman');
@@ -90,6 +99,8 @@ do {
     alert('Well not quite, but I\'d love to be bilingual someday soon!');
   } else if (isBilingual === 'no' || isBilingual === 'n') {
     alert('Sadly, you\'re right. But I hope to change that soon!');
+    totalCorrect += 1;
+    console.log('Total Correct: ' + totalCorrect);
     isBilingualBool = false;
   } else {
     alert('Please respond with a simple (Y) Yes or (N) No next time, thanks!');
@@ -128,6 +139,8 @@ while (numGuessCounter < 5) {
   } else if (userNumGuess == randomNum) { // Checks if guess matches random number (type coerced), break
     alert('NICE! You guessed the number in ' + numGuessCounter + ' out of 4 guesses!');
     console.log('Number was guessed');
+    totalCorrect += 1;
+    console.log('Total Correct: ' + totalCorrect);
     break;
   } else if (userNumGuess > randomNum) { // Checks if guess is higher than random number, inc counter
     alert('Nope, it\'s lower! You have used ' + numGuessCounter + ' out of 4 guesses');
@@ -168,6 +181,8 @@ while (langGuessCounter < 7) {
     }
   }
   if (isRight) {
+    totalCorrect += 1;
+    console.log('Total Correct: ' + totalCorrect);
     break;
   } else {
     alert('Sorry, try again! You have used ' + langGuessCounter + ' out of 6 guesses');
@@ -176,7 +191,7 @@ while (langGuessCounter < 7) {
   langGuessCounter++;
 }
 if (langGuessCounter === 7) {
-  alert('Sorry, you are ran out of guesses!');
+  alert('Sorry, you ran out of guesses!');
 }
 
 // Display a message of all of my favorite languages to the user
@@ -186,4 +201,4 @@ for (var index = 0; index < favLanguages.length; index++) {
 }
 alert('My favorite languages are: ' + favLanguagesMessage);
 
-alert('Thanks for playing!');
+alert('Thanks for playing, ' + userName + '! You got ' + totalCorrect + '/7 questions right!');
