@@ -36,26 +36,32 @@ h3 {
   margin: 15px;
 }
 
-img {
-  height: 200px;
-}
 
 /***********************************
 *    More specific CSS Selectors   *
  ***********************************/
-p:first-of-type {
+#bio-section p {
   width: 66%;
   margin: 15px auto;
+}
+
+li>p {
+  text-align: left;
 }
 
 #about-me-top-container {
   background-color: lightslategray;
   box-shadow: 0px 1px;
+  position: relative;
 }
 
 #about-me-top-container > h1 {
-  margin: 0 15px 15px 15px;
-  padding-top: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5em;
+  color: white;
 }
 
 #bio-paragraph{
@@ -63,5 +69,12 @@ p:first-of-type {
 }
 
 #image-container {
-  text-align: center;
+  max-height: 500px;
+  overflow: hidden;
 }
+
+#image-container > img {
+  margin: 0px;
+  max-width: 100%;
+}
+
