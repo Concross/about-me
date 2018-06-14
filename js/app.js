@@ -178,9 +178,11 @@ while (langGuessCounter < 7) {
 if (langGuessCounter === 7) {
   alert('Sorry, you are ran out of guesses!');
 }
+
+// Display a message of all of my favorite languages to the user
 var favLanguagesMessage = '';
-for (var j = 0; j < favLanguages.length; j++){
-  favLanguagesMessage += favLanguages[j] + ' ';
+for (var index = 0; index < favLanguages.length; index++) {
+  favLanguagesMessage += favLanguages[index] + ' ';
 }
 alert('My favorite languages are: ' + favLanguagesMessage);
 
