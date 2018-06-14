@@ -10,21 +10,33 @@ var userNumGuess;
 var randomNum;
 var userLangGuess; // Declared variable holder for users guess
 var favLanguagesMessage = '';
+var yesNoAnswers = ['y', 'yes', 'yeah', 'yea', 'n', 'no'];
+
 
 var totalCorrect = 0; // Declare a variable for counting the total number of correctly answered questions
 // Prompt user for name, respond with a greeting
 function askName() {
- userName = prompt('Hello! What is your name?');
+  userName = prompt('Hello! What is your name?');
   alert('Nice to meet you, ' + userName + '. Let\'s play a yes or no guessing game!');
   console.log('Username: ' + userName);
 }
 askName();
 
+function checkYesNoAnswer(answer) {
+  for (var i = 0; i < yesNoAnswers.length; i++) {
+    if (answer === yesNoAnswers[i]) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+};
+
 function campingQuestion() {
   // DO WHILE loop
+  likesCamping = prompt('Do I like to go camping?').toLowerCase();
   var likesCampingBool = true;
   do {
-    likesCamping = prompt('Do I like to go camping?').toLowerCase();
     // Check if the guess is correct
     if (likesCamping === 'yes' || likesCamping === 'y') {
       alert('You\'re right! I LOVE camping');
@@ -167,7 +179,7 @@ function languageGuessingGame() {
   var langGuessCounter = 1; // Declared a guess counter
   var guessMax = 7;
   var isRight = false;
-  
+
   // Beginning of while loop for language guessing game
   while (langGuessCounter < guessMax && !isRight) {
 
@@ -176,25 +188,25 @@ function languageGuessingGame() {
     // Iterate through the list and check if values match
     for (var i = 0; i < favLanguages.length; i++) {
       if (userLangGuess === favLanguages[i]) { // If there's a match, over increment counter to fail while
-      alert('YAY! You got it right in ' + langGuessCounter + ' out of 6 guesses!');
-      isRight = true;
-    };
+        alert('YAY! You got it right in ' + langGuessCounter + ' out of 6 guesses!');
+        isRight = true;
+      };
+    }
+    if (isRight) {
+      totalCorrect += 1;
+    } else {
+      alert('Sorry, try again! You have used ' + langGuessCounter + ' out of 6 guesses');
+    }
+    langGuessCounter++;
   }
-  if (isRight) {
-    totalCorrect += 1;
-  } else {
-    alert('Sorry, try again! You have used ' + langGuessCounter + ' out of 6 guesses');
+  if (!isRight) {
+    alert('Sorry, you ran out of guesses!');
   }
-  langGuessCounter++;
-}
-if (!isRight) {
-  alert('Sorry, you ran out of guesses!');
-}
-// Display a message of all of my favorite languages to the user
-for (var index = 0; index < favLanguages.length; index++) {
-  favLanguagesMessage += favLanguages[index] + ' ';
-}
-alert('My favorite languages are: ' + favLanguagesMessage);
+  // Display a message of all of my favorite languages to the user
+  for (var index = 0; index < favLanguages.length; index++) {
+    favLanguagesMessage += favLanguages[index] + ' ';
+  }
+  alert('My favorite languages are: ' + favLanguagesMessage);
 };
 languageGuessingGame();
 
