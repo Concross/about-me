@@ -145,10 +145,11 @@ while (numGuessCounter < 5) {
 var favLanguages = ['html', 'css', 'javascript', 'python']; // Array of answers
 var userLangGuess; // Declared variable holder for users guess
 var langGuessCounter = 1; // Declared a guess counter
+var guessMax = 7;
 var isRight = false;
 
 // Beginning of while loop for language guessing game
-while (langGuessCounter < 7) {
+while (langGuessCounter < guessMax && !isRight) {
 
   // Prompt user for a guess
   userLangGuess = prompt('What is ONE of my favorite programming languages?').toLowerCase();
@@ -157,21 +158,16 @@ while (langGuessCounter < 7) {
     if (userLangGuess === favLanguages[i]) { // If there's a match, over increment counter to fail while
       alert('YAY! You got it right in ' + langGuessCounter + ' out of 6 guesses!');
       isRight = true;
-      break;
-    } else {
-      isRight = false;
-    }
+    };
   }
   if (isRight) {
     totalCorrect += 1;
-    break;
   } else {
     alert('Sorry, try again! You have used ' + langGuessCounter + ' out of 6 guesses');
   }
-
   langGuessCounter++;
 }
-if (langGuessCounter === 7) {
+if (!isRight) {
   alert('Sorry, you ran out of guesses!');
 }
 
