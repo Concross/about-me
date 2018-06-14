@@ -4,6 +4,7 @@
 *    BASE CSS STYLING     *
 ************************* */
 body{
+  counter-reset: item;
   background: lightgray;
 }
 h1, h2, h3 {
@@ -40,6 +41,15 @@ h3 {
 /***********************************
 *    More specific CSS Selectors   *
  ***********************************/
+ol > li {
+  counter-increment: item;
+}
+ol > li:before {
+  content: counter(item);
+  list-style-type: decimal;
+  margin: 5px 10px 10px 15px;
+}
+
 #bio-section p {
   width: 66%;
   margin: 15px auto;

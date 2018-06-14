@@ -16,7 +16,6 @@ do {
   if (likesCamping === 'yes' || likesCamping === 'y') {
     alert('You\'re right! I LOVE camping');
     totalCorrect += 1;
-    console.log('Total Correct: ' + totalCorrect);
     likesCampingBool = false;
   } else if (likesCamping === 'no' || likesCamping === 'n') {
     alert('Sorry, you missed this one. I LOVE camping!');
@@ -37,7 +36,6 @@ do {
   if (hasDog === 'yes' || hasDog === 'y') {
     alert('You\'re right, I have a big fluffy Alaskan Malamute named Sledge!');
     totalCorrect += 1;
-    console.log('Total Correct: ' + totalCorrect);
     hasDogBool = false;
   } else if (hasDog === 'no' || hasDog === 'n') {
     alert('Sorry, you missed this one. I have a big fluffy Alaskan Malamute named Sledge!');
@@ -57,7 +55,6 @@ do {
   if (isFunny === 'yes' || isFunny === 'y') {
     alert('Well.... you\'re right, I\'m obviously hilarious!');
     totalCorrect += 1;
-    console.log('Total Correct: ' + totalCorrect);
     isFunnyBool = false;
   } else if (isFunny === 'no' || isFunny === 'n') {
     alert('Oof...');
@@ -78,7 +75,6 @@ do {
   if (isBatman === 'yes' || isBatman === 'y') {
     alert('I\'m BATMAN');
     totalCorrect += 1;
-    console.log('Total Correct: ' + totalCorrect);
     isBatmanBool = false;
   } else if (isBatman === 'no' || isBatman === 'n') {
     alert('Nope, I\'m definitely batman');
@@ -100,7 +96,6 @@ do {
   } else if (isBilingual === 'no' || isBilingual === 'n') {
     alert('Sadly, you\'re right. But I hope to change that soon!');
     totalCorrect += 1;
-    console.log('Total Correct: ' + totalCorrect);
     isBilingualBool = false;
   } else {
     alert('Please respond with a simple (Y) Yes or (N) No next time, thanks!');
@@ -114,7 +109,6 @@ var myMin = 1;
 var myMax = 100;
 //The maximum is inclusive and the minimum is inclusive
 var randomNum = Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
-console.log('randomNum: ' + randomNum);
 
 // Variable declaration for the random number guessing game
 var userNumGuess;
@@ -125,40 +119,30 @@ while (numGuessCounter < 5) {
 
   // Prompt user and log values
   userNumGuess = prompt('Try and guess my random number between 1 and 100!');
-  console.log('userNumGuess: ' + userNumGuess);
-  console.log('numGuessCounter: ' + numGuessCounter);
 
   // Check for null values/empty strings and guesses outside desired range
   if ((userNumGuess < 1 || userNumGuess > 100) || userNumGuess === null || userNumGuess === '') {
     alert('Please guess a NUMBER between 1 and 100');
-    console.log('User inputted a null value, an empty string, or a number outside the range');
   } else if (numGuessCounter === 4) { // Checks if user is out of guesses and breaks out of loop
     alert('Sorry, you are out of guesses! The number was ' + randomNum + '.');
-    console.log('User ran out of guesses');
     break;
   } else if (userNumGuess == randomNum) { // Checks if guess matches random number (type coerced), break
     alert('NICE! You guessed the number in ' + numGuessCounter + ' out of 4 guesses!');
-    console.log('Number was guessed');
     totalCorrect += 1;
-    console.log('Total Correct: ' + totalCorrect);
     break;
   } else if (userNumGuess > randomNum) { // Checks if guess is higher than random number, inc counter
     alert('Nope, it\'s lower! You have used ' + numGuessCounter + ' out of 4 guesses');
-    console.log('User guess was higher than random number');
     numGuessCounter++;
   } else if (userNumGuess < randomNum) { // Checks guess is lower than random number, inc counter
     alert('Nope, it\'s higher! You have used ' + numGuessCounter + ' out of 4 guess;');
-    console.log('User guess was lower than random number');
     numGuessCounter++;
   } else { // Tries to weakly handle unexpected input like random characters or letters
     alert('Hmm... something\'s not right. Please try again guessing a NUMBER between 1and 100.');
-    console.log('Unexpected response');
   }
 }
 
 // Guessing game from a list of possible answers
 var favLanguages = ['html', 'css', 'javascript', 'python']; // Array of answers
-console.log('Favorite languages: ' + favLanguages);
 var userLangGuess; // Declared variable holder for users guess
 var langGuessCounter = 1; // Declared a guess counter
 var isRight = false;
@@ -168,8 +152,6 @@ while (langGuessCounter < 7) {
 
   // Prompt user for a guess
   userLangGuess = prompt('What is ONE of my favorite programming languages?').toLowerCase();
-  console.log('User guess: ' + userLangGuess);
-  console.log('langGuessCounter: ' + langGuessCounter);
   // Iterate through the list and check if values match
   for (var i = 0; i < favLanguages.length; i++) {
     if (userLangGuess === favLanguages[i]) { // If there's a match, over increment counter to fail while
@@ -182,7 +164,6 @@ while (langGuessCounter < 7) {
   }
   if (isRight) {
     totalCorrect += 1;
-    console.log('Total Correct: ' + totalCorrect);
     break;
   } else {
     alert('Sorry, try again! You have used ' + langGuessCounter + ' out of 6 guesses');
@@ -201,4 +182,27 @@ for (var index = 0; index < favLanguages.length; index++) {
 }
 alert('My favorite languages are: ' + favLanguagesMessage);
 
+// Code block to grab elements from game.html
+var questionHeader = document.getElementById('question-header');
+var scoreHeader = document.getElementById('score-header');
+var campingAnswer = document.getElementById('camping-answer');
+var dogAnswer = document.getElementById('dog-answer');
+var funnyAnswer = document.getElementById('funny-answer');
+var batmanAnswer = document.getElementById('batman-answer');
+var bilingualAnswer = document.getElementById('bilingual-answer');
+var numberGuessAnswer = document.getElementById('number-guess-answer');
+var languageAnswer = document.getElementById('language-answer');
+
+// Code block to write to the above elements
+questionHeader.innerHTML = userName + ' here are the questions and your answers!';
+scoreHeader.innerHTML = 'You got ' + totalCorrect + ' out of 7 correct!';
+campingAnswer.innerHTML = 'You answered ' + likesCamping + ', and the correct answer is yes.';
+dogAnswer.innerHTML = 'You answered ' + hasDog + ', and the correct answer is yes.';
+funnyAnswer.innerHTML = 'You answered ' + isFunny + ', and obviously the answer is yes.';
+batmanAnswer.innerHTML = 'You answered ' + isBatman + '... I\'M BATMAN';
+bilingualAnswer.innerHTML = 'You answered ' + isBilingual + ', and the answer is no, not quite.';
+numberGuessAnswer.innerHTML = 'You\'re best guess was ' + userNumGuess + ' and the correct answer was ' + randomNum;
+languageAnswer.innerHTML = 'Your best guess was ' + userLangGuess + '. My favorite languages are: ' + favLanguagesMessage;
+
+// Final message of the game!
 alert('Thanks for playing, ' + userName + '! You got ' + totalCorrect + '/7 questions right!');
