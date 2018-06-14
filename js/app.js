@@ -2,13 +2,15 @@
 
 var userName;
 var likesCamping;
-
-
+var hasDog;
+var isFunny;
+var isBatman;
+var isBilingual;
 
 var totalCorrect = 0; // Declare a variable for counting the total number of correctly answered questions
 // Prompt user for name, respond with a greeting
 function askName() {
-  userName = prompt('Hello! What is your name?');
+ userName = prompt('Hello! What is your name?');
   alert('Nice to meet you, ' + userName + '. Let\'s play a yes or no guessing game!');
   console.log('Username: ' + userName);
 }
@@ -16,7 +18,6 @@ askName();
 
 function campingQuestion() {
   // DO WHILE loop
-  likesCamping;
   var likesCampingBool = true;
   do {
     likesCamping = prompt('Do I like to go camping?').toLowerCase();
@@ -37,11 +38,9 @@ campingQuestion();
 
 // Prompt user and respond based on the answer
 function dogQuestion() {
-  var hasDog;
   var hasDogBool = true;
   do {
     hasDog = prompt('Do I have a dog?').toLowerCase();
-
     // Check if the guess is correct
     if (hasDog === 'yes' || hasDog === 'y') {
       alert('You\'re right, I have a big fluffy Alaskan Malamute named Sledge!');
@@ -59,11 +58,9 @@ dogQuestion();
 
 // Prompt user and respond based on the answer
 function funnyQuestion() {
-  var isFunny;
   var isFunnyBool = true;
   do {
     isFunny = prompt('Do you think I\'m funny?').toLowerCase();
-
     // Check if the guess is correct
     if (isFunny === 'yes' || isFunny === 'y') {
       alert('Well.... you\'re right, I\'m obviously hilarious!');
@@ -81,12 +78,9 @@ funnyQuestion();
 
 // Prompt user and respond based on the answer
 function batmanQuestion() {
-  var isBatman;
   var isBatmanBool = true;
-
   do {
     isBatman = prompt('Am I Batman?').toLowerCase();
-
     // Check if the guess is correct
     if (isBatman === 'yes' || isBatman === 'y') {
       alert('I\'m BATMAN');
@@ -104,11 +98,9 @@ batmanQuestion();
 
 // Prompt user and respond based on the answer
 function bilingualQuestion() {
-  var isBilingual;
   var isBilingualBool = true;
   do {
     isBilingual = prompt('Am I bilingual?').toLowerCase();
-
     // Check if the guess is correct
     if (isBilingual === 'yes' || isBilingual === 'y') {
       alert('Well not quite, but I\'d love to be bilingual someday soon!');
