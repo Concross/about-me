@@ -6,6 +6,8 @@ var hasDog;
 var isFunny;
 var isBatman;
 var isBilingual;
+var userNumGuess;
+var randomNum;
 
 var totalCorrect = 0; // Declare a variable for counting the total number of correctly answered questions
 // Prompt user for name, respond with a greeting
@@ -123,10 +125,9 @@ function randomNumberGame() {
   var myMin = 1;
   var myMax = 100;
   //The maximum is inclusive and the minimum is inclusive
-  var randomNum = Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+  randomNum = Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
 
   // Variable declaration for the random number guessing game
-  var userNumGuess;
   var numGuessCounter = 1;
 
   // While user has made less than 4 guess, stay in the while loop
