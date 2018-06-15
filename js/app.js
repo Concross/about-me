@@ -1,7 +1,10 @@
 'use strict';
 
+var likesCamping, hasDog, isFunny, isBatman, isBilingual;
+
 var possibleYesAnswers = ['y', 'yes', 'yea', 'yeah'];
 var possibleNoAnswers = ['n', 'no', 'nope', 'nah'];
+var isRight = false;
 var totalCorrect = 0;
 
 // Increments totalCorrect
@@ -9,8 +12,8 @@ function incrementTotalCorrect (){
   totalCorrect += 1;
 }
 // Asks the prompt passed into the function. Expecting a string
-function askYesNoQuestion(prompt){
-  var lowerCaseAnswer = prompt(prompt).toLowerCase();
+function askYesNoQuestion(question){
+  var lowerCaseAnswer = prompt(question).toLowerCase();
   return lowerCaseAnswer;
 };
 
@@ -34,7 +37,8 @@ function checkNoCorrect (answer){
   return false;
 };
 
-
+likesCamping = askYesNoQuestion('Do I like camping?');
+console.log(likesCamping);
 // var userName;
 // var likesCamping;
 // var hasDog;
