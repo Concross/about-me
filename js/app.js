@@ -1,125 +1,50 @@
 'use strict';
 
 // Global variables
-var userName;
-var likesCamping;
-var hasDog;
-var isFunny;
-var isBatman;
-var isBilingual;
-var userNumGuess;
-var randomNum;
-var userLangGuess; // Declared variable holder for users guess
+var userName, likesCamping, hasDog, isFunny, isBatman, isBilingual, userNumGuess, randomNum, userLangGuess;
 var favLanguagesMessage = '';
+var totalCorrect; // Declare a variable for counting the total number of correctly answered questions
 
-var totalCorrect = 0; // Declare a variable for counting the total number of correctly answered questions
+var questionsArray = ['Do I like to go camping?', 'Do I like dogs?', 'Am I funny?', 'Am I Batman?', 'Am I bilingual?'];
+
+var correctAnswerArray = [1, 1, 1, 1, 0];
+var incorrectAnswerArray = [0, 0, 0, 0, 1];
+
+var possibleAnswerArray = [['no', 'n'], ['yes', 'y']];
+
+function asksAllQuestions() {
+  askName();
+  totalCorrect = 0;
+
+  for (var i = 0; i < questionsArray.length; i++) {
+    var notAnswered = true;
+    do {
+      var answer = prompt(questionsArray[i]).toLowerCase();
+
+      if (answer === possibleAnswerArray[correctAnswerArray[i]][0] || answer === possibleAnswerArray[correctAnswerArray[i]][1]) {
+        alert('You\'re right!');
+        totalCorrect += 1;
+        notAnswered = false;
+      } else if (answer === possibleAnswerArray[incorrectAnswerArray[i]][0] || answer === possibleAnswerArray[incorrectAnswerArray[i]][1]) {
+        alert('Sorry, you missed this one.');
+        notAnswered = false;
+      } else {
+        alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
+      }
+    } while (notAnswered);
+  }
+}
+
+asksAllQuestions();
+
 // Prompt user for name, respond with a greeting
 function askName() {
   userName = prompt('Hello! What is your name?');
   alert('Nice to meet you, ' + userName + '. Let\'s play a yes or no guessing game!');
   console.log('Username: ' + userName);
 }
-askName();
 
-function campingQuestion() {
-  // DO WHILE loop
-  var likesCampingBool = true;
-  do {
-    likesCamping = prompt('Do I like to go camping?').toLowerCase();
-    // Check if the guess is correct
-    if (likesCamping === 'yes' || likesCamping === 'y') {
-      alert('You\'re right! I LOVE camping');
-      totalCorrect += 1;
-      likesCampingBool = false;
-    } else if (likesCamping === 'no' || likesCamping === 'n') {
-      alert('Sorry, you missed this one. I LOVE camping!');
-    } else {
-      alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
-    }
-    console.log('likesCamping: ' + likesCamping);
-  } while (likesCampingBool);
-};
-campingQuestion();
 
-// Prompt user and respond based on the answer
-function dogQuestion() {
-  var hasDogBool = true;
-  do {
-    hasDog = prompt('Do I have a dog?').toLowerCase();
-    // Check if the guess is correct
-    if (hasDog === 'yes' || hasDog === 'y') {
-      alert('You\'re right, I have a big fluffy Alaskan Malamute named Sledge!');
-      totalCorrect += 1;
-      hasDogBool = false;
-    } else if (hasDog === 'no' || hasDog === 'n') {
-      alert('Sorry, you missed this one. I have a big fluffy Alaskan Malamute named Sledge!');
-    } else {
-      alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
-    }
-    console.log('hasDog: ' + hasDog);
-  } while (hasDogBool);
-};
-dogQuestion();
-
-// Prompt user and respond based on the answer
-function funnyQuestion() {
-  var isFunnyBool = true;
-  do {
-    isFunny = prompt('Do you think I\'m funny?').toLowerCase();
-    // Check if the guess is correct
-    if (isFunny === 'yes' || isFunny === 'y') {
-      alert('Well.... you\'re right, I\'m obviously hilarious!');
-      totalCorrect += 1;
-      isFunnyBool = false;
-    } else if (isFunny === 'no' || isFunny === 'n') {
-      alert('Oof...');
-    } else {
-      alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
-    }
-    console.log('isFunny: ' + isFunny);
-  } while (isFunnyBool);
-};
-funnyQuestion();
-
-// Prompt user and respond based on the answer
-function batmanQuestion() {
-  var isBatmanBool = true;
-  do {
-    isBatman = prompt('Am I Batman?').toLowerCase();
-    // Check if the guess is correct
-    if (isBatman === 'yes' || isBatman === 'y') {
-      alert('I\'m BATMAN');
-      totalCorrect += 1;
-      isBatmanBool = false;
-    } else if (isBatman === 'no' || isBatman === 'n') {
-      alert('Nope, I\'m definitely batman');
-    } else {
-      alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
-    }
-    console.log('isBatman: ' + isBatman);
-  } while (isBatmanBool);
-};
-batmanQuestion();
-
-// Prompt user and respond based on the answer
-function bilingualQuestion() {
-  var isBilingualBool = true;
-  do {
-    isBilingual = prompt('Am I bilingual?').toLowerCase();
-    // Check if the guess is correct
-    if (isBilingual === 'yes' || isBilingual === 'y') {
-      alert('Well not quite, but I\'d love to be bilingual someday soon!');
-    } else if (isBilingual === 'no' || isBilingual === 'n') {
-      alert('Sadly, you\'re right. But I hope to change that soon!');
-      totalCorrect += 1;
-      isBilingualBool = false;
-    } else {
-      alert('Please respond with a simple (Y) Yes or (N) No next time, thanks!');
-    }
-    console.log('isBilingual: ' + isBilingual);
-  } while (isBilingualBool);
-};
-bilingualQuestion();
 
 
 // Question logic for a random number guessing game
