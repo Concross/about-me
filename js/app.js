@@ -38,6 +38,11 @@ function checkNoCorrect (answer){
 };
 
 likesCamping = askYesNoQuestion('Do I like camping?');
+if(checkYesCorrect(likesCamping)){
+  console.log('line 42');
+} else {
+  console.log('line 44');
+}
 console.log(likesCamping);
 // var userName;
 // var likesCamping;
