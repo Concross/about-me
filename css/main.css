@@ -5,7 +5,8 @@
 ************************* */
 body{
   counter-reset: item;
-  background: lightgray;
+  background: whitesmoke;
+  font-family: 'Lato', sans-serif;
 }
 h1, h2, h3 {
   margin-top: 30px;
@@ -50,13 +51,21 @@ ol > li:before {
   margin: 5px 10px 10px 15px;
 }
 
+ol:last-of-type {
+  text-align: center;
+  background-color: lightslategray;
+  margin: 0 15px;
+  padding: 1em;
+}
 #bio-section p {
-  width: 66%;
+  width: 50%;
   margin: 15px auto;
+  line-height: 2em;
 }
 
 li>p {
   text-align: left;
+  line-height: 1.5em;
 }
 
 #about-me-top-container {
@@ -76,6 +85,7 @@ li>p {
 
 #bio-paragraph{
   text-align: center;
+  padding: 1em;
 }
 
 #image-container {
@@ -88,3 +98,13 @@ li>p {
   max-width: 100%;
 }
 
+#education-section {
+  background-color: lightslategray;
+  margin: 0 15px;
+  padding: 1em;
+}
+
+#work-experience-section {
+  margin: 0 15px;
+  padding: 1em;
+}
