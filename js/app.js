@@ -1,19 +1,44 @@
 'use strict';
 
 // Global variables
-var userName, likesCamping, hasDog, isFunny, isBatman, isBilingual, userNumGuess, randomNum, userLangGuess;
+var userName, userNumGuess, randomNum, userLangGuess;
 var favLanguagesMessage = '';
 var totalCorrect; // Declare a variable for counting the total number of correctly answered questions
 
-var questionsArray = ['Do I like to go camping?', 'Do I like dogs?', 'Am I funny?', 'Am I Batman?', 'Am I bilingual?'];
+// Code block to grab elements from game.html
+var questionHeader = document.getElementById('question-header');
+var scoreHeader = document.getElementById('score-header');
+var campingAnswer = document.getElementById('camping-answer');
+var dogAnswer = document.getElementById('dog-answer');
+var funnyAnswer = document.getElementById('funny-answer');
+var batmanAnswer = document.getElementById('batman-answer');
+var bilingualAnswer = document.getElementById('bilingual-answer');
+var numberGuessAnswer = document.getElementById('number-guess-answer');
+var languageAnswer = document.getElementById('language-answer');
 
+// Initialize arrays for tracking and answering yes/no questions
+var questionsArray = ['Do I like to go camping?', 'Do I like dogs?', 'Am I funny?', 'Am I Batman?', 'Am I bilingual?'];
+var currentAnswersArray = [];
 var correctAnswerArray = [1, 1, 1, 1, 0];
 var incorrectAnswerArray = [0, 0, 0, 0, 1];
-
 var possibleAnswerArray = [['no', 'n'], ['yes', 'y']];
 
-function asksAllQuestions() {
+
+playGuessingGame(); // Play the game!
+
+// Run all game functions
+function playGuessingGame () {
   askName();
+  asksAllQuestions();
+  randomNumberGame();
+  languageGuessingGame();
+  gameAnswersWriter();
+}
+
+// Final message of the game!
+alert('Thanks for playing, ' + userName + '! You got ' + totalCorrect + '/7 questions right!');
+
+function asksAllQuestions() {
   totalCorrect = 0;
 
   for (var i = 0; i < questionsArray.length; i++) {
@@ -23,10 +48,12 @@ function asksAllQuestions() {
 
       if (answer === possibleAnswerArray[correctAnswerArray[i]][0] || answer === possibleAnswerArray[correctAnswerArray[i]][1]) {
         alert('You\'re right!');
+        currentAnswersArray.push(answer);
         totalCorrect += 1;
         notAnswered = false;
       } else if (answer === possibleAnswerArray[incorrectAnswerArray[i]][0] || answer === possibleAnswerArray[incorrectAnswerArray[i]][1]) {
         alert('Sorry, you missed this one.');
+        currentAnswersArray.push(answer);
         notAnswered = false;
       } else {
         alert('Please respond with a simple (Y) Yes or (N) No for the following questions, thanks!');
@@ -35,13 +62,11 @@ function asksAllQuestions() {
   }
 }
 
-asksAllQuestions();
 
 // Prompt user for name, respond with a greeting
 function askName() {
   userName = prompt('Hello! What is your name?');
   alert('Nice to meet you, ' + userName + '. Let\'s play a yes or no guessing game!');
-  console.log('Username: ' + userName);
 }
 
 
@@ -63,16 +88,15 @@ function randomNumberGame() {
 
     // Prompt user and log values
     userNumGuess = prompt('Try and guess my random number between 1 and 100!');
-
     // Check for null values/empty strings and guesses outside desired range
     if ((userNumGuess < 1 || userNumGuess > 100) || userNumGuess === null || userNumGuess === '') {
       alert('Please guess a NUMBER between 1 and 100');
-    } else if (numGuessCounter === 4) { // Checks if user is out of guesses and breaks out of loop
-      alert('Sorry, you are out of guesses! The number was ' + randomNum + '.');
-      break;
     } else if (userNumGuess == randomNum) { // Checks if guess matches random number (type coerced), break
       alert('NICE! You guessed the number in ' + numGuessCounter + ' out of 4 guesses!');
       totalCorrect += 1;
+      break;
+    } else if (numGuessCounter === 4) { // Checks if user is out of guesses and breaks out of loop
+      alert('Sorry, you are out of guesses! The number was ' + randomNum + '.');
       break;
     } else if (userNumGuess > randomNum) { // Checks if guess is higher than random number, inc counter
       alert('Nope, it\'s lower! You have used ' + numGuessCounter + ' out of 4 guesses');
@@ -85,7 +109,6 @@ function randomNumberGame() {
     }
   }
 };
-randomNumberGame();
 
 // Guessing game from a list of possible answers
 function languageGuessingGame() {
@@ -122,31 +145,17 @@ function languageGuessingGame() {
   }
   alert('My favorite languages are: ' + favLanguagesMessage);
 };
-languageGuessingGame();
 
 
-// Code block to grab elements from game.html
-var questionHeader = document.getElementById('question-header');
-var scoreHeader = document.getElementById('score-header');
-var campingAnswer = document.getElementById('camping-answer');
-var dogAnswer = document.getElementById('dog-answer');
-var funnyAnswer = document.getElementById('funny-answer');
-var batmanAnswer = document.getElementById('batman-answer');
-var bilingualAnswer = document.getElementById('bilingual-answer');
-var numberGuessAnswer = document.getElementById('number-guess-answer');
-var languageAnswer = document.getElementById('language-answer');
 // Code block to write to the above elements
 function gameAnswersWriter() {
   questionHeader.innerHTML = userName + ' here are the questions and your answers!';
   scoreHeader.innerHTML = 'You got ' + totalCorrect + ' out of 7 correct!';
-  campingAnswer.innerHTML = 'You answered ' + likesCamping + ', and the correct answer is yes.';
-  dogAnswer.innerHTML = 'You answered ' + hasDog + ', and the correct answer is yes.';
-  funnyAnswer.innerHTML = 'You answered ' + isFunny + ', and obviously the answer is yes.';
-  batmanAnswer.innerHTML = 'You answered ' + isBatman + '... I\'M BATMAN';
-  bilingualAnswer.innerHTML = 'You answered ' + isBilingual + ', and the answer is no, not quite.';
-  numberGuessAnswer.innerHTML = 'You\'re best guess was ' + userNumGuess + ' and the correct answer was ' + randomNum;
+  campingAnswer.innerHTML = 'You answered ' + currentAnswersArray[0] + ', and the correct answer is (y) yes.';
+  dogAnswer.innerHTML = 'You answered ' + currentAnswersArray[1] + ', and the correct answer is (y) yes.';
+  funnyAnswer.innerHTML = 'You answered ' + currentAnswersArray[2] + ', and obviously the answer is (y) yes.';
+  batmanAnswer.innerHTML = 'You answered ' + currentAnswersArray[3] + '... I\'M BATMAN';
+  bilingualAnswer.innerHTML = 'You answered ' + currentAnswersArray[4] + ', and the answer is (n) no.';
+  numberGuessAnswer.innerHTML = 'Your best guess was ' + userNumGuess + ' and the correct answer was ' + randomNum;
   languageAnswer.innerHTML = 'Your best guess was ' + userLangGuess + '. My favorite languages are: ' + favLanguagesMessage;
 };
-gameAnswersWriter();
-// Final message of the game!
-alert('Thanks for playing, ' + userName + '! You got ' + totalCorrect + '/7 questions right!');
