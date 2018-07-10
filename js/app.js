@@ -1,6 +1,7 @@
 'use strict';
 
 // Global variables
+// Adding test comment
 
 // Used to append the questions to the parent ul in game.html
 var guessingGameSectionEl = document.getElementById('guessing-game-section');
