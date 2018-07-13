@@ -33,7 +33,9 @@ h4 {
 
 p {
   color: #393D3F;
+  font-size: 1.12em;
   font-family: 'Ubuntu', sans-serif;
+  line-height: 1.5em;
 }
 
 a {
@@ -41,8 +43,9 @@ a {
 }
 
 header {
+  width: 95%;
+  margin: 0 auto 60px auto;
   text-align: center;
-  padding: 50px;
 }
 
 nav {
@@ -58,6 +61,7 @@ nav li {
   font-size: 1.5em;
   font-weight: bold;
   font-style: italic;
+  letter-spacing: .20em;
 
 }
 
@@ -81,7 +85,6 @@ main {
  ***********************************/
 #bio-section h2 {
   width: 30%;
-  margin-bottom: 30px;
   float: left;
   border-right: 1px solid #499F68;
 }
@@ -90,6 +93,11 @@ main {
   float: right;
   clear: right;
   width: 68%;
+  margin-bottom: 10px;
+}
+
+#bio-section p:last-child {
+  margin-bottom: 60px;
 }
 
 #projects-section h2 {
