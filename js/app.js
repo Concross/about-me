@@ -3,6 +3,7 @@
 /***********************************
 *     DOM Access                   *
 ************************************/
+var gameHeaderEl = document.getElementById('game-header');
 var gameSectionUl = document.getElementById('guessing-game-section');
 
 /***********************************
@@ -77,13 +78,30 @@ function updateScore() {
   userScore++;
 }
 
+function renderScore() {
+  var scoreEl = document.createElement('h3');
+  scoreEl.textContent = 'Your Score: ' + userScore + '/' + yesNoQuestionsArray.length;
+
+  gameHeaderEl.appendChild(scoreEl);
+}
+
+function updateUser() {
+  var username = prompt('Get to know me with a quick guessing game! But first, let me get to know you by entering your name below.');
+
+  var gameHeaderh1 = document.createElement('h1');
+  gameHeaderh1.textContent = 'Thanks for playing, ' + username + '!';
+
+  gameHeaderEl.appendChild(gameHeaderh1);
+}
+
 function runGame() {
   for (var i = 0; i < yesNoQuestionsPool.length; i++) {
     new YesNoQuestion(yesNoQuestionsPool[i].question, yesNoQuestionsPool[i].answer);
   }
+  updateUser();
   YesNoQuestion.askAll();
+  renderScore();
   YesNoQuestion.renderAll();
-  console.log(userScore);
 }
 
 runGame();
