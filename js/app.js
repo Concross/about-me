@@ -12,3 +12,8 @@ function YesNoQuestion(question, answer) {
   yesNoQuestionsArray.push(this);
 }
 
+function runGame() {
+  for (var i = 0; i < yesNoQuestionsPool.length; i++) {
+    new YesNoQuestion(yesNoQuestionsPool[i].question, yesNoQuestionsPool[i].answer);
+  }
+}
