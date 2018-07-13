@@ -19,7 +19,7 @@ h1 {
 
 h2 {
   font-size: 3em;
-  color: #44A1A0;
+  color: #009CEF;
 }
 
 h3 {
@@ -28,7 +28,7 @@ h3 {
 
 h4 {
   font-size: 1.5em;
-  color: #499F68;
+  color: #44A1A0;
 }
 
 p {
@@ -36,22 +36,42 @@ p {
   font-family: 'Ubuntu', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 header {
   text-align: center;
   padding: 50px;
 }
 
+nav {
+  height: 40px;
+  border-top: 2px solid #009CEF;
+  border-bottom: 2px solid #009CEF;
+}
+
 nav li {
   display: inline-block;
+  margin-right: 20px;
+  line-height: 40px;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-style: italic;
+
+}
+
+nav a {
+  color: #499F68;
 }
 
 header section {
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin : 20px;
 }
 
-header section li {
-  display: inline-block;
-}
 main {
   width: 80%;
   margin: 30px auto;
@@ -60,9 +80,10 @@ main {
 *    More specific CSS Selectors   *
  ***********************************/
 #bio-section h2 {
-  float: left;
   width: 30%;
   margin-bottom: 30px;
+  float: left;
+  border-right: 1px solid #499F68;
 }
 
 #bio-section p {
@@ -72,9 +93,10 @@ main {
 }
 
 #projects-section h2 {
-  clear: both;
   width: 30%;
   float: left;
+  clear: both;
+  border-right: 1px solid #499F68;
 }
 
 #projects-section ul {
