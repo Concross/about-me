@@ -1,8 +1,13 @@
 /* Main CSS File */
-
+* {
+  outline: 1px dotted red;
+}
 /**************************
 *    BASE CSS STYLING     *
 ************************* */
+body {
+  background-color: #ffffff;
+}
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 15px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -14,6 +19,7 @@ h1 {
 
 h2 {
   font-size: 3em;
+  color: #44A1A0;
 }
 
 h3 {
@@ -22,6 +28,11 @@ h3 {
 
 h4 {
   font-size: 1.5em;
+  color: #000000;
+}
+
+p {
+  color: #393D3F;
 }
 
 header {
@@ -36,6 +47,41 @@ nav li {
 header section {
   float: left;
 }
+
+main {
+  width: 80%;
+  margin: 30px auto;
+}
 /***********************************
 *    More specific CSS Selectors   *
  ***********************************/
+#bio-section h2 {
+  float: left;
+  width: 30%;
+  margin-bottom: 30px;
+}
+
+#bio-section p {
+  float: right;
+  clear: right;
+  width: 68%;
+}
+
+#projects-section h2 {
+  clear: both;
+  width: 30%;
+  float: left;
+}
+
+#projects-section ul {
+  width: 68%;
+  float: right;
+}
+
+#projects-section li {
+  margin-bottom: 25px;
+}
+
+#game-start-section {
+  clear: both;
+}
