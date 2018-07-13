@@ -1,6 +1,7 @@
 'use strict';
 
 var yesNoQuestionsArray = [];
+var yesNoQuestionsPool = [{question: 'Do I love camping?', answer: true}, {question: 'Do I have a dog?', answer: true}, {question: 'Have I run a half marathon?', answer: false}, {question: 'Am I batman?', answer: true}, {question: 'Am I vegetarian?', answer: false}];
 /***********************************
 *   Yes No Question Constructor    *
 ************************************/
@@ -10,3 +11,4 @@ function YesNoQuestion(question, answer) {
   this.answer = answer;
   yesNoQuestionsArray.push(this);
 }
+
