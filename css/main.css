@@ -1,6 +1,6 @@
 /* Main CSS File */
 * {
-  outline: 1px dotted red;
+  /* outline: 1px dotted red; */
 }
 /**************************
 *    BASE CSS STYLING     *
@@ -10,7 +10,7 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 15px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
@@ -28,11 +28,12 @@ h3 {
 
 h4 {
   font-size: 1.5em;
-  color: #000000;
+  color: #499F68;
 }
 
 p {
   color: #393D3F;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 header {
@@ -48,6 +49,9 @@ header section {
   float: left;
 }
 
+header section li {
+  display: inline-block;
+}
 main {
   width: 80%;
   margin: 30px auto;
