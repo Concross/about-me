@@ -1,8 +1,14 @@
 'use strict';
 
 /***********************************
-*     DOM Access                   *
+*     DOM Stuff                   *
 ************************************/
+$('main section:first').siblings().hide();
+let $navBar = $('nav a').on('click', function () {
+  $('section').hide();
+  let $shownSection = $(this).data('section');
+  $(`#${$shownSection}`).fadeIn(750);
+});
 var gameHeaderEl = document.getElementById('game-header');
 var gameSectionUl = document.getElementById('guessing-game-section');
 
@@ -104,4 +110,4 @@ function runGame() {
   YesNoQuestion.renderAll();
 }
 
-runGame();
+// runGame();

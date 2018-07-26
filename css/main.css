@@ -83,20 +83,20 @@ main {
 /***********************************
 *    More specific CSS Selectors   *
  ***********************************/
-#bio-section h2 {
+#resume-section h2 {
   width: 30%;
   float: left;
   border-right: 1px solid #499F68;
 }
 
-#bio-section p {
+#resume-section p {
   float: right;
   clear: right;
   width: 68%;
   margin-bottom: 10px;
 }
 
-#bio-section p:last-child {
+#resume-section p:last-child {
   margin-bottom: 60px;
 }
 
