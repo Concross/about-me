@@ -1,5 +1,5 @@
 'use strict';
-
+// FIX: Game accidentally runs multiples times
 /***********************************
 *     DOM Stuff                   *
 ************************************/
