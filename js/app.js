@@ -3,15 +3,20 @@
 /***********************************
 *     DOM Stuff                   *
 ************************************/
+var gameHeaderEl = document.getElementById('game-header');
+var gameSectionUl = document.getElementById('guessing-game-section');
+
 $('main section:first').siblings().hide();
 let $navBar = $('nav a').on('click', function () {
   $('main section').hide();
   let $shownSection = $(this).data('section');
   $(`#${$shownSection}`).fadeToggle(750);
+  if ($shownSection == 'game-section') {
+    runGame();
+    $shownSection.children().show();
+  }
 });
 
-var gameHeaderEl = document.getElementById('game-header');
-var gameSectionUl = document.getElementById('guessing-game-section');
 
 /***********************************
 *     Global Variables             *
