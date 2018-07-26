@@ -5,9 +5,9 @@
 ************************************/
 $('main section:first').siblings().hide();
 let $navBar = $('nav a').on('click', function () {
-  $('section').hide();
+  $('main section').hide();
   let $shownSection = $(this).data('section');
-  $(`#${$shownSection}`).fadeIn(750);
+  $(`#${$shownSection}`).fadeToggle(750);
 });
 
 var gameHeaderEl = document.getElementById('game-header');
