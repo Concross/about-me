@@ -9,6 +9,7 @@ let $navBar = $('nav a').on('click', function () {
   let $shownSection = $(this).data('section');
   $(`#${$shownSection}`).fadeIn(750);
 });
+
 var gameHeaderEl = document.getElementById('game-header');
 var gameSectionUl = document.getElementById('guessing-game-section');
 
